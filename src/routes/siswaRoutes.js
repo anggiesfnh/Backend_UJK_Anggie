@@ -6,8 +6,8 @@ const router = express.Router();
 
 router.get('/', siswaController.getAllSiswa);
 router.get('/:id', siswaController.getAllSiswaById);
-router.post('/', siswaController.createSiswa);
-router.put('/:id', siswaController.updateSiswa);
+router.post('/', validationBodySiswa, siswaController.createSiswa);
+router.put('/:id', validationBodySiswa, siswaController.updateSiswa);
 router.delete('/:id', siswaController.deleteSiswa);
 
 module.exports = router;
