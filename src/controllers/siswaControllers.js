@@ -32,7 +32,7 @@ const createSiswa = async (req, res) => {
     try {
         const { kode_siswa, nama, alamat, tanggal_lahir, jurusan } = req.body;
         const siswa = await prisma.Siswa.create({
-            data: { kode_siswa: "TEMP", nama, alamat, tanggal_lahir, jurusan }
+            data: { kode_siswa: "TEMP", nama, alamat, tanggal_lahir: new Date(tanggal_lahir), jurusan }
         });
 
         const kode = `S-${String(siswa.id).padStart(3, '0')}`;
